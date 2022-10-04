@@ -1,15 +1,25 @@
-pipeline {
+pipeline
+{
+	agent 
+	{
+		label
+		{
+
+			label 'built-in'
+			customWorkspace '/data/test'
 		
-			agent {
-						label 'built-in'
-						//customWorkspace '/data/test'
-			}
-			
-			stages {
-				stage('stage-1')
-				{
-					echo "This is master branch"
-				}
+		}
+	}
+	stages
+		{
+		stage('touch')
+		{
+			steps
+			{
+			echo "pipeline Demo"
+			sh "touch 1 2 3 4"
 			}
 		}
-			
+	    }
+	
+}
